@@ -2,17 +2,15 @@
 
 namespace Tests\Feature;
 
-use \Exception;
 use Tests\TestCase;
 use App\Domain\Notes\Entities\Note;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Mockery;
 
 /**
- * Class EditNoteTest
+ * Class UpdateNoteTest
  * @package Tests\Feature
  */
-class EditNoteTest extends TestCase
+class UpdateNoteTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -42,6 +40,20 @@ class EditNoteTest extends TestCase
         ->assertJsonFragment(['note_title' => 'Note Edited', 'note_text' => 'Text Edited']);
 
         $this->assertDatabaseHas('notes', ['note_title' => 'Note Edited', 'note_text' => 'Text Edited']);
+    }
+
+    public function testUpdateNoteNotFound()
+    {
+        $note = Note::create([
+            'note_title' => 'Note',
+            'note_text' => 'Text'
+        ]);
+
+        $this->put(
+            'api/notes/not_found',
+            ['note_title' => 'Note Edited', 'note_text' => 'Text Edited'],
+            ['Accept' => 'application/json']
+        )->assertStatus(404);
     }
 
     /**
