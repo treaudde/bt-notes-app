@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Domain\Notes\Entities\Note;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ViewNoteTest extends TestCase
@@ -23,7 +24,7 @@ class ViewNoteTest extends TestCase
         $note = Note::create($noteData);
 
         //get the note
-        $this->get("notes/{$note->id}")
+        $this->get("api/notes/{$note->id}", ['Accept' => 'application/json'])
             ->assertStatus(200)
             ->assertJson($noteData);
     }

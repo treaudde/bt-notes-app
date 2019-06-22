@@ -1,8 +1,7 @@
 version: "3.7"
 services:
   apache:
-    build:
-      context: ./
+    image: treaudde/simple-development-environment:latest
     ports:
       - "8080:80"
     volumes:
@@ -17,7 +16,7 @@ services:
       DB_PASSWORD: insecure_password
 
   mysql:
-    image: mysql:5
+    image: mysql:latest
     ports:
       - "33066:3306"
     environment:
