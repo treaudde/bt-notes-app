@@ -6,6 +6,10 @@ use Tests\TestCase;
 use App\Domain\Notes\Entities\Note;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * Class ViewNoteTest
+ * @package Tests\Feature
+ */
 class ViewNoteTest extends TestCase
 {
 

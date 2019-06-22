@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Domain\Notes\Entities\Note;
 use App\Http\Controllers\Controller;
 use App\Domain\Notes\Http\Requests\CreateNoteRequest;
+use App\Domain\Notes\Http\Requests\UpdateNoteRequest;
 
 class NoteController extends Controller
 {
@@ -56,9 +57,16 @@ class NoteController extends Controller
      * @param  \App\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Note $note)
+    public function update(UpdateNoteRequest $request, Note $note)
     {
-        //
+        $updateNoteData = [
+            'note_title' => $request->get('note_title'),
+            'note_text' => $request->get('note_text')
+        ];
+
+        $note->update($updateNoteData);
+        return response()->json($note->refresh());
+
     }
 
     /**
