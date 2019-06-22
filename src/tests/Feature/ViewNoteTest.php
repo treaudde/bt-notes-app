@@ -28,4 +28,12 @@ class ViewNoteTest extends TestCase
             ->assertStatus(200)
             ->assertJson($noteData);
     }
+
+    public function testViewNoteNotFound()
+    {
+        //get the note
+        $this->get("api/notes/not_found", ['Accept' => 'application/json'])
+            ->assertStatus(404);
+    }
+
 }
