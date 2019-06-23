@@ -1,0 +1,43 @@
+
+.container {
+  border:1px solid black;
+}
+
+HEADER{
+    background-color: #f7f9fc;
+}
+
+HEADER H1 {
+    font-variant: small-caps;
+    text-align:center;
+    padding:20px 0px;
+}
+
+NAV UL {
+    margin:0;
+    padding:0
+}
+
+NAV LI {
+    display:block;
+    list-style: none;
+    width:100%;
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+
+NAV LI A {
+    display:block;
+    text-transform:uppercase;
+    text-decoration: none;
+    color:black;
+    padding:20px 0px;
+    background-color:#c9cacc;
+}
+
+NAV LI A:hover {
+    text-decoration:none;
+    color:black;
+    background-color: white;
+}

@@ -1,0 +1,10 @@
+H2{
+    font-variant:small-caps;
+}
+
+UL LI {
+    list-style:none;
+    margin:0;
+    padding: 0px 10px;
+    font-size:0.9em;
+}

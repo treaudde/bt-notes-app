@@ -1,0 +1,23 @@
+LI{
+    list-style: none;
+    margin:0;
+    padding:5px;
+}
+
+LI H3{
+    font-variant:small-caps;
+}
+
+LI UL LI {
+    list-style: none;
+    display:block;
+    margin:0;
+}
+
+LI UL LI A{
+    display:block;
+    font-style: italic;
+    padding:0px 10px;
+    text-decoration:none;
+    font-size:0.9em
+}

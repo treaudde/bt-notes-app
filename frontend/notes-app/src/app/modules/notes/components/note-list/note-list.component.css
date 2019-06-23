@@ -1,0 +1,12 @@
+H2{
+    font-variant:small-caps;
+}
+
+UL {
+    margin:0;
+    padding:0;
+}
+
+UL LI.list-note-item:nth-child(odd) {
+    background-color:  #f7f9fc;
+}

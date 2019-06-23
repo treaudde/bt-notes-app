@@ -1,0 +1,11 @@
+<section id="notes-list">
+    <div class="row">
+        <div class="col-12">
+      <h2>My Notes ({{noteCount}} total)</h2>
+      <ul>
+        <note *ngFor="let noteData of notes;" [note]="noteData"></note>
+
+      </ul>
+        </div>
+    </div>
+</section>
