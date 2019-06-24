@@ -7,12 +7,10 @@ This is a simple notes app with Laravel backend and an AngularJS Frontend
 `git clone https://github.com/treaudde/bt-notes-app.git`
 2. Make sure `docker` and `docker-compose` are installed on your machine. If not
 instructions can be found here: `https://docs.docker.com/`
-3. `cd` into the `notes-app` folder and run the following command: `docker-compose up -d`
-4. If this is the first time running the project, you will need to run the 
-following additional command to set up the database after the containers are running:  
- `docker exec -it $(docker ps | grep 'treaudde/simple-development-environment:latest' | awk '{print $1}') php artisan migrate`
-5. To make sure everything is running properly, run the test suite using the following command:  
-`docker exec -it $(docker ps | grep 'treaudde/simple-development-environment:latest' | awk '{print $1}') ./vendor/bin/phpunit`
-6. If the test suite returns no errors, open your browser and visit the following address
-to begin using the app: `http://localhost:8080`
+3. `cd` into the `notes-app` folder
+4. Make sure the `start-project.sh` is executable by running the following command:
+`chmod +x ./start-project.sh`
+5. Run the `start-project.sh` script with the following command: `bash start-project.sh`
+6. Once the script runs, and if there are no errors, visit the following url in your browser:
+`http://localhost:8081`
 7. Begin using the app and have fun.
