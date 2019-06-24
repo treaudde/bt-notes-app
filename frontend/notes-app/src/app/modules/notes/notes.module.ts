@@ -6,10 +6,11 @@ import {CommonModule} from "@angular/common";
 import {NoteFormComponent} from "./components/note-form/note-form.component";
 import {ViewNoteComponent} from "./components/view-note/view-note.component";
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [NoteListComponent, NoteComponent, NoteFormComponent, ViewNoteComponent],
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, RouterModule],
   exports: [NoteListComponent, NoteFormComponent, ViewNoteComponent],
   providers: [NoteService]
 })

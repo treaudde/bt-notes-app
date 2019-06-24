@@ -13,6 +13,10 @@ HEADER H1 {
     padding:20px 0px;
 }
 
+NAV {
+    margin-bottom:20px;
+}
+
 NAV UL {
     margin:0;
     padding:0

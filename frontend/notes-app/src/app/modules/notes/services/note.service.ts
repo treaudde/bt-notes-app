@@ -17,12 +17,14 @@ export class NoteService {
   }
 
   getNotes() {
-    return this.http.get<Note>(this.apiUrlHost + '/api/notes',
-      {observe: 'response'}
-    );
+    return this.http.get<Note[]>(this.apiUrlHost + '/api/notes');
   }
 
   getNote(noteId: Number) {
+    return this.http.get<Note>(this.apiUrlHost + `/api/notes/${noteId}`);
+  }
+
+  addNote() {
 
   }
 
@@ -31,6 +33,6 @@ export class NoteService {
   }
 
   deleteNote(note : Note) {
-
+    return this.http.delete(this.apiUrlHost + `/api/notes/${note.id}`, {observe: 'response'})
   }
 }

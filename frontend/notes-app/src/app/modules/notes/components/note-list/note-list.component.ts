@@ -12,29 +12,23 @@ import {Note} from "../../entities/note";
 export class NoteListComponent {
 
   notes : Note[]
-  noteService : NoteService;
   noteCount = 0;
 
-  constructor(noteService: NoteService) {
-    this.noteService = noteService;
+  constructor(private noteService: NoteService) {
     this.notes = [];
   }
 
   ngOnInit() {
-    this.noteService.getNotes().subscribe((response) => {
-      let data: any =  response.body;
-      console.log(response);
-      data.forEach((note) => {
-          this.notes.push(new Note(note.id, note.note_title, note.note_text));
-      });
-
-      this.noteCount = this.notes.length;
-    }, (error) => {
-        console.log(error)
-    });
-
-
+    this.loadNotes();
   }
 
+  loadNotes() {
+    this.noteService.getNotes().subscribe((response) => {
+      this.notes = response;
+      this.noteCount = this.notes.length;
+    }, (error) => {
+      console.log(error)
+    });
+  }
 }
 

@@ -2,13 +2,13 @@
   <h3>{{note.note_title}}</h3>
   <ul class="d-flex">
     <li>
-      <a href="note/view/{{note.id}}" onclick="return false">View</a>
+      <a routerLink="/note/{{note.id}}">View</a>
     </li>
     <li>
-      <a href="note/edit/{{note.id}}" onclick="return false">Edit</a>
+      <a routerLink="/note/edit/{{note.id}}" onclick="return false">Edit</a>
     </li>
     <li>
-      <a href="note/delete/{{note.id}}" onclick="return false">Delete</a>
+      <a routerLink="/note/delete/{{note.id}}" (click)="deleteNote(note)">Delete</a>
     </li>
   </ul>
 </li>
