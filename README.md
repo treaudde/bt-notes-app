@@ -7,7 +7,7 @@ This is a simple notes app with Laravel backend and an AngularJS Frontend
 `git clone https://github.com/treaudde/bt-notes-app.git`
 2. Make sure `docker` and `docker-compose` are installed on your machine. If not
 instructions can be found here: `https://docs.docker.com/`
-3. `cd` into the `notes-app` folder
+3. `cd` into the `bt-notes-app` folder
 4. Make sure the `start-project.sh` is executable by running the following command:
 `chmod +x ./start-project.sh`
 5. Run the `start-project.sh` script with the following command: `bash start-project.sh`
