@@ -23,10 +23,10 @@ export class ViewNoteComponent {
   }
 
   ngOnInit() {
-    let noteId : Number = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.noteService.getNote(noteId).subscribe((response) => {
-      this.note = response;
-    });
+    this.route.data
+        .subscribe((data: { note: Note }) => {
+          this.note = data.note
+        });
   }
 }
 

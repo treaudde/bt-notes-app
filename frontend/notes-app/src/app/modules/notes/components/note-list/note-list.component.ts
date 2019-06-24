@@ -13,6 +13,7 @@ export class NoteListComponent {
 
   notes : Note[]
   noteCount = 0;
+  loaded = false;
 
   constructor(private noteService: NoteService) {
     this.notes = [];
@@ -23,7 +24,9 @@ export class NoteListComponent {
   }
 
   loadNotes() {
+
     this.noteService.getNotes().subscribe((response) => {
+      this.loaded = true;
       this.notes = response;
       this.noteCount = this.notes.length;
     }, (error) => {

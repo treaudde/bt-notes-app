@@ -8,7 +8,7 @@
       <a routerLink="/note/edit/{{note.id}}" onclick="return false">Edit</a>
     </li>
     <li>
-      <a routerLink="/note/delete/{{note.id}}" (click)="deleteNote(note)">Delete</a>
+      <a routerLink="/note/delete/{{note.id}}" (click)="deleteNote(note)" #deleteLink>Delete</a>
     </li>
   </ul>
 </li>

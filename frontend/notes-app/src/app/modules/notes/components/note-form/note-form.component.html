@@ -1,20 +1,30 @@
  <section id="notes-form">
     <div class="row">
       <div class="col-12">
-        <h2>Add / Edit Note</h2>
-        <form>
+
+        <h2 *ngIf="!editing; else editTitle">Add New Note</h2>
+        <ng-template #editTitle><h2>Editing Note: {{note.note_title}}</h2></ng-template>
+
+        <form #noteForm="ngForm" (ngSubmit)="saveNote(noteForm)" name="noteForm" novalidate>
           <div class="form-group">
             <label for="note-title">Note Title</label>
-            <input type="text" name="note-title" class="form-control" id="note-title" />
+            <input type="text" required name="noteTitle" class="form-control" [(ngModel)]="note.note_title" id="note-title" />
+            <div class="alert alert-danger" *ngIf="noteForm.controls.noteTitle?.touched && !noteForm.controls.noteTitle?.valid">
+              <strong>Note Title</strong> is required
+            </div>
           </div>
+
 
           <div class="form-group">
             <label for="note-text">Note Text</label>
-            <textarea name="note-text" class="form-control" id="note-text"></textarea>
+            <textarea name="noteText" required class="form-control" id="note-text" [(ngModel)]="note.note_text"></textarea>
+            <div class="alert alert-danger" *ngIf="noteForm.controls.noteText?.touched && !noteForm.controls.noteText?.valid">
+              <strong>Note Text</strong> is required
+            </div>
           </div>
 
           <div class="form-group">
-            <button type="button" class="btn btn-secondary" (click)="saveNote()">Save</button>
+            <button type="submit" class="btn btn-secondary" [disabled]="!noteForm.valid" #submitButton>Save</button>
             <a routerLink="/notes" class="btn btn-danger">Cancel</a>
           </div>
         </form>

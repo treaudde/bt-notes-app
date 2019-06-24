@@ -24,12 +24,12 @@ export class NoteService {
     return this.http.get<Note>(this.apiUrlHost + `/api/notes/${noteId}`);
   }
 
-  addNote() {
-
+  addNote(note : Note) {
+    return this.http.post(this.apiUrlHost + '/api/notes', note)
   }
 
   updateNote(note : Note) {
-
+    return this.http.put(this.apiUrlHost + `/api/notes/${note.id}`, note)
   }
 
   deleteNote(note : Note) {

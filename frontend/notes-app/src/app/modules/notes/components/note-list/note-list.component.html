@@ -2,12 +2,15 @@
     <div class="row">
         <div class="col-12">
       <h2>My Notes ({{noteCount}} total)</h2>
-    <p *ngIf="noteCount == 0">
-        No Notes available, why not <a routerLink="/note/add"> add a note</a>
-    </p>
-      <ul>
-        <note *ngFor="let noteData of notes;" [note]="noteData" (deleted)="loadNotes()"></note>
-      </ul>
+            <p *ngIf="!loaded; else loadedContent">Loading, please wait...</p>
+            <ng-template #loadedContent>
+                <p *ngIf="noteCount == 0">
+                    No Notes available, why not <a routerLink="/note/add"> add a note</a>
+                </p>
+                  <ul>
+                    <note *ngFor="let noteData of notes;" [note]="noteData" (deleted)="loadNotes()"></note>
+                  </ul>
+            </ng-template>
         </div>
     </div>
 </section>
