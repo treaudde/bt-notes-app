@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
 import {Note} from "../entities/note";
+import {environment} from "../../../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
 
-  notes: Note[]
+  notes: Note[];
+  apiUrlHost: string;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.notes = [];
-    this.generateNotes();
+    this.apiUrlHost = environment.notesApiHost;
   }
 
   getNotes() {
-    return this.notes.slice();
+    return this.http.get<Note>(this.apiUrlHost + '/api/notes',
+      {observe: 'response'}
+    );
   }
 
   getNote(noteId: Number) {
+
   }
 
   updateNote(note : Note) {
@@ -26,11 +32,5 @@ export class NoteService {
 
   deleteNote(note : Note) {
 
-  }
-
-  generateNotes() {
-    for(let x = 1; x<=10; x++) {
-      this.notes.push(new Note((x+1), `Note ${x}`, `Lorem Ipsum Dolor sit amet ${x}`))
-    }
   }
 }

@@ -17,13 +17,23 @@ export class NoteListComponent {
 
   constructor(noteService: NoteService) {
     this.noteService = noteService;
+    this.notes = [];
   }
 
   ngOnInit() {
-    this.notes = this.noteService.getNotes();
+    this.noteService.getNotes().subscribe((response) => {
+      let data: any =  response.body;
+      console.log(response);
+      data.forEach((note) => {
+          this.notes.push(new Note(note.id, note.note_title, note.note_text));
+      });
 
-    console.log(this.notes);
-    this.noteCount = this.notes.length;
+      this.noteCount = this.notes.length;
+    }, (error) => {
+        console.log(error)
+    });
+
+
   }
 
 }

@@ -10,7 +10,7 @@ services:
       - ./config/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
     environment:
       DB_CONNECTION: mysql
-      DB_HOST: database
+      DB_HOST: notes-database
       DB_PORT: 3306
       DB_DATABASE: notes-app
       DB_USERNAME: notes
